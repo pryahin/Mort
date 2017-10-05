@@ -151,8 +151,8 @@ void GameWindow::completedGame(int id)
     disconnect(scene, SIGNAL(levelComplete(int)), this, SLOT(completedGame(int)));
 
     clockFacade->succeed(id);
-    times[0]->setText(clockFacade->clock_timers[id]->getDecoratedTime());
-    times[0]->setStyleSheet("QLabel { color : green; }");
+    times[id]->setText(clockFacade->clock_timers[id]->getDecoratedTime());
+    times[id]->setStyleSheet("QLabel { color : green; }");
     user.setScore(user.getScore() + clockFacade->time(id)*10);
     ui->score->setText("Score: " + QString::number(user.getScore()));
     startLoading();
